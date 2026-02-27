@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Toaster } from "react-hot-toast";
+import { useLocation } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import TrustedBy from "../components/TrustedBy";
@@ -9,14 +11,23 @@ import Teams from "../components/Teams";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 
-
-
 const Home = ({ theme, setTheme }) => {
+  const location = useLocation();
+
   const dotRef = useRef(null);
   const outlineRef = useRef(null);
   const mouse = useRef({ x: 0, y: 0 });
   const position = useRef({ x: 0, y: 0 });
 
+  // ===== Scroll to hash (for email button navigation) =====
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  // ===== Custom Cursor =====
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouse.current.x = e.clientX;
@@ -43,7 +54,9 @@ const Home = ({ theme, setTheme }) => {
   }, []);
 
   return (
-<div className="relative bg-white dark:bg-[#060D18] transition-colors duration-300">      <Toaster />
+    <div className="relative bg-white dark:bg-[#060D18] transition-colors duration-300">
+      
+      <Toaster position="top-center" />
 
       <Navbar theme={theme} setTheme={setTheme} />
 

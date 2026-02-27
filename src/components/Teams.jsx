@@ -40,15 +40,17 @@ const Founder = () => {
             Omar Abutwairat
           </h2>
 
-          <p className="text-lg text-gray-300 leading-relaxed mb-6 max-w-xl">
-            I design intelligent automation systems that replace manual
-            operations with scalable, self-running infrastructure.
+          <p className="text-lg text-gray-300 leading-relaxed mb-6">
+            Omar Abutwairat is a Software Engineer focused on AI automation,
+            workflow engineering, and scalable infrastructure design. He builds
+            production-ready systems that eliminate operational complexity and
+            enable sustainable growth.
           </p>
 
-          <p className="text-gray-400 leading-relaxed mb-10 max-w-xl">
-            Through NeuraSync AI, I architect AI-powered workflows using n8n and
-            modern automation frameworks — transforming chaotic processes into
-            structured, high-performance systems built for growth.
+          <p className="text-gray-400 leading-relaxed mb-8">
+            By combining automation frameworks, intelligent classification
+            systems, and modern web architecture, he transforms chaotic business
+            processes into streamlined, performance-driven ecosystems.
           </p>
 
           {/* Divider */}

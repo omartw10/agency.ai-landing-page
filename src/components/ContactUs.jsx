@@ -4,7 +4,10 @@ import assets from "../assets/assets";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
-const ContactUs = ({ subject = "New Inquiry - NeuraSync AI" }) => {
+const ContactUs = ({ 
+  subject = "New Inquiry - NeuraSync AI",
+  defaultMessage = ""
+}) => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (event) => {
@@ -48,7 +51,23 @@ const ContactUs = ({ subject = "New Inquiry - NeuraSync AI" }) => {
       const data = await response.json();
 
       if (data.success) {
-        toast.success("✅ Message sent successfully! We’ll contact you soon.");
+        toast.success("Message sent successfully 🚀", {
+          duration: 4000,
+          position: "top-center",
+          style: {
+            background: "#0E1624",
+            color: "#E6F7FA",
+            border: "1px solid #00C2D1",
+            padding: "14px 18px",
+            borderRadius: "12px",
+            boxShadow: "0 0 25px rgba(0,194,209,0.3)",
+          },
+          iconTheme: {
+            primary: "#00C2D1",
+            secondary: "#0E1624",
+          },
+        });
+
         form.reset();
       } else {
         toast.error("Something went wrong. Please try again.");
@@ -61,14 +80,17 @@ const ContactUs = ({ subject = "New Inquiry - NeuraSync AI" }) => {
   };
 
   return (
-    <section className="px-6 sm:px-12 lg:px-24 xl:px-40 py-28">
+    <section
+      id="contact-us"
+      className="px-6 sm:px-12 lg:px-24 xl:px-40 py-28"
+    >
+      {" "}
       <div className="max-w-4xl mx-auto text-center mb-14">
         <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-4">
           Send Us a Message
         </h2>
         <p className="text-gray-400">Tell us about your automation needs.</p>
       </div>
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -152,20 +174,16 @@ const ContactUs = ({ subject = "New Inquiry - NeuraSync AI" }) => {
                 Project Details
               </label>
               <textarea
-                rows={6}
-                name="message"
-                required
-                placeholder="Describe what you want to automate..."
-                className="
-  w-full rounded-xl px-5 py-3 outline-none transition-all duration-300
-  bg-white dark:bg-[#0F1B2D]
-  text-gray-900 dark:text-white
-  placeholder-gray-400
-  border border-gray-300 dark:border-white/10
-  focus:border-[#00C2D1]
-  focus:ring-2 focus:ring-[#00C2D1]/40
-"
-              />
+  rows={6}
+  name="message"
+  defaultValue={defaultMessage}
+  placeholder="Tell us what you want to automate..."
+  required
+  className="w-full bg-transparent border border-gray-300 dark:border-gray-600 
+             focus:border-[#00C2D1] focus:ring-1 focus:ring-[#00C2D1] 
+             transition-all rounded-lg px-4 py-3 outline-none resize-none
+             text-gray-800 dark:text-white placeholder-gray-400"
+/>
             </div>
 
             {/* Button */}

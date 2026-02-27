@@ -184,7 +184,7 @@ const InboxPilot = () => {
         <div className="mt-12 flex flex-col md:flex-row justify-center gap-8">
           <div className="p-8 rounded-xl bg-white dark:bg-[#0E1624] shadow-lg w-80">
             <h3 className="text-lg font-semibold">Setup</h3>
-            <p className="text-4xl mt-4 font-bold">$500</p>
+            <p className="text-4xl mt-4 font-bold">$499</p>
             <p className="mt-4 text-gray-600 dark:text-gray-300 text-sm">
               Full system setup, AI tuning, workflow integration and deployment.
             </p>
@@ -205,7 +205,21 @@ const InboxPilot = () => {
         id="contact-inboxpilot"
         className="px-6 sm:px-12 lg:px-24 xl:px-40 py-20"
       >
-        <ContactUs />
+        <ContactUs
+          subject="InboxPilot AI Booking Request"
+          defaultMessage={`Hello NeuraSync AI Team,
+
+I would like to schedule a setup for InboxPilot AI.
+
+Company Name:
+Estimated Monthly Email Volume:
+Current Email Provider:
+CRM (if any):
+
+Looking forward to your response.
+
+Best regards,`}
+        />
       </section>
 
       {/* ===== CTA ===== */}
