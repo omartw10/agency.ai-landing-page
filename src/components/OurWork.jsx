@@ -1,61 +1,85 @@
 import React from "react";
-import Title from "./Title";
-import assets from "../assets/assets";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const OurWork = () => {
-  const workData = [
-    {
-      title: "Mobile app marketing",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect...",
-      image: assets.work_mobile_app,
-    },
-    {
-      title: "Dashboard management",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect...",
-      image: assets.work_dashboard_management,
-    },
-    {
-      title: "Fitness app promotion",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect...",
-      image: assets.work_fitness_app,
-    },
-  ];
-
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ staggerChildren: 0.2 }}
-      id="our-work"
-      className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white"
-    >
-      <Title
-        title="Our latest work"
-        desc="Browse our portfolio of innovative digital projects that showcase creativity, performance, and results."
-      />
+    <section className="px-6 sm:px-12 lg:px-24 xl:px-40 py-28 text-gray-900 dark:text-white">
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
-        {workData.map((work, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            key={index}
-            className="hover:scale-102 duration-500 transition-all cursor-pointer"
-          >
-            <img src={work.image} className="w-full rounded-xl" alt="" />
-            <h3 className="mt-3 mb-2 text-lg font-semibold">{work.title}</h3>
-            <p className="text-sm opacity-60 w-5/6">{work.description}</p>
-          </motion.div>
-        ))}
+      {/* ===== Section Header ===== */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h2 className="text-4xl sm:text-5xl font-semibold">
+          Product <span className="text-[#00C2D1]">&</span> Studio
+        </h2>
+        <p className="mt-6 text-gray-600 dark:text-gray-300 text-lg">
+          Ready automation solutions and fully custom AI systems — built to scale.
+        </p>
       </div>
-    </motion.div>
+
+      {/* ===== Cards ===== */}
+      <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+        {/* ===== PRODUCT CARD ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="group relative p-10 rounded-3xl bg-white dark:bg-[#0E1624] border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300"
+        >
+          <div className="mb-6 text-sm font-medium text-[#00C2D1] uppercase tracking-wide">
+            Product
+          </div>
+
+          <h3 className="text-2xl font-semibold mb-4">
+            InboxPilot AI
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+            A production-ready intelligent inbox automation system that classifies,
+            routes and prioritizes emails using AI and n8n workflows.
+          </p>
+
+          <Link
+            to="/inboxpilot"
+            className="inline-flex items-center text-[#00C2D1] font-medium group-hover:translate-x-1 transition"
+          >
+            Explore Product →
+          </Link>
+        </motion.div>
+
+        {/* ===== STUDIO CARD ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="group relative p-10 rounded-3xl bg-white dark:bg-[#0E1624] border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300"
+        >
+          <div className="mb-6 text-sm font-medium text-[#00C2D1] uppercase tracking-wide">
+            Studio
+          </div>
+
+          <h3 className="text-2xl font-semibold mb-4">
+            Custom AI Automation
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+            Have a workflow in mind? We design and build tailored AI-powered
+            automation systems around your exact business needs — from lead routing
+            to internal operations and beyond.
+          </p>
+
+          <a
+            href="#contact-us"
+            className="inline-flex items-center text-[#00C2D1] font-medium group-hover:translate-x-1 transition"
+          >
+            Build With Us →
+          </a>
+        </motion.div>
+
+      </div>
+    </section>
   );
 };
 

@@ -1,42 +1,77 @@
 import React from "react";
-import Title from "./Title";
-import { teamData } from "../assets/assets";
 import { motion } from "framer-motion";
+import assets from "../assets/assets";
 
-const Teams = () => {
+const Founder = () => {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-800 dark:text-white"
-    >
-      <Title
-        title="Meet the team"
-        desc="A passionate team of digital experts dedicated to your brand’s success."
-      />
-
-      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
-        {teamData.map((team, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            
-            key={index}
-            className="flex max-sm:flex-col items-center gap-5 p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-gray-100 dark:shadow-white/5 hover:scale-103 transition-all duration-400"
-          >
-            <img src={team.image} className="w-12 h-12 rounded-full" alt="" />
-            <div className="flex-1">
-              <h3 className="font-bold text-sm">{team.name}</h3>
-              <p className="text-xs opacity-60">{team.title}</p>
+    <section className="px-6 sm:px-12 lg:px-24 xl:px-40 py-36 text-gray-900 dark:text-white">
+      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 items-center">
+        {" "}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center md:justify-start"
+        >
+          <div className="relative">
+            {/* Subtle Border Frame */}
+            <div className="rounded-2xl border border-[#00C2D1]/25 p-2 bg-[#0E1624]/30 backdrop-blur-sm">
+              <img
+                src={assets.omar_photo}
+                alt="Founder of NeuraSync AI"
+                className="w-[300px] sm:w-[340px] rounded-xl object-cover md:-ml-10g-10"
+              />
             </div>
-          </motion.div>
-        ))}
+          </div>
+        </motion.div>
+        {/* ===== Content Side ===== */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-sm font-semibold tracking-widest text-[#00C2D1] mb-4">
+            FOUNDER
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
+            Omar Abutwairat
+          </h2>
+
+          <p className="text-lg text-gray-300 leading-relaxed mb-6 max-w-xl">
+            I design intelligent automation systems that replace manual
+            operations with scalable, self-running infrastructure.
+          </p>
+
+          <p className="text-gray-400 leading-relaxed mb-10 max-w-xl">
+            Through NeuraSync AI, I architect AI-powered workflows using n8n and
+            modern automation frameworks — transforming chaotic processes into
+            structured, high-performance systems built for growth.
+          </p>
+
+          {/* Divider */}
+          <div className="w-16 h-[2px] bg-[#00C2D1]/60 rounded-full mb-8" />
+
+          {/* Meta Info */}
+          <div className="flex flex-wrap gap-10 text-sm">
+            <div>
+              <div className="text-[#00C2D1] font-medium mb-1">Focus</div>
+              <div className="text-gray-400">Automation Architecture</div>
+            </div>
+
+            <div>
+              <div className="text-[#00C2D1] font-medium mb-1">Stack</div>
+              <div className="text-gray-400">
+                n8n · AI Systems · Web Infrastructure
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 
-export default Teams;
+export default Founder;

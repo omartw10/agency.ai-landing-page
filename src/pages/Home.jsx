@@ -1,32 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import InboxPilot from "./pages/InboxPilot";
+import React, { useEffect, useRef } from "react";
+import { Toaster } from "react-hot-toast";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import TrustedBy from "../components/TrustedBy";
+import Services from "../components/Services";
+import OurWork from "../components/OurWork";
+import Teams from "../components/Teams";
+import ContactUs from "../components/ContactUs";
+import Footer from "../components/Footer";
 
-const getInitialTheme = () => {
-  const saved = localStorage.getItem("theme");
-  if (saved === "dark" || saved === "light") return saved;
-  if (typeof window !== "undefined") {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  }
-  return "light";
-};
 
-const App = () => {
-  const [theme, setTheme] = useState(getInitialTheme);
 
-  // ===== Custom Cursor =====
+const Home = ({ theme, setTheme }) => {
   const dotRef = useRef(null);
   const outlineRef = useRef(null);
   const mouse = useRef({ x: 0, y: 0 });
   const position = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -54,16 +43,17 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home theme={theme} setTheme={setTheme} />} />
-          <Route
-            path="/inboxpilot"
-            element={<InboxPilot theme={theme} setTheme={setTheme} />}
-          />
-        </Routes>
-      </BrowserRouter>
+<div className="relative bg-white dark:bg-[#060D18] transition-colors duration-300">      <Toaster />
+
+      <Navbar theme={theme} setTheme={setTheme} />
+
+      <Hero />
+      <TrustedBy />
+      <Services />
+      <OurWork />
+      <Teams />
+      <ContactUs />
+      <Footer theme={theme} />
 
       {/* Cursor Outline */}
       <div
@@ -83,8 +73,8 @@ const App = () => {
           boxShadow: "0 0 12px rgba(0,194,209,0.8)",
         }}
       />
-    </>
+    </div>
   );
 };
 
-export default App;
+export default Home;
