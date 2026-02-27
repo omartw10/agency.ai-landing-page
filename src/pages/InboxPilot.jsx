@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
 import ContactUs from "../components/ContactUs";
+import { Toaster } from "react-hot-toast";
 
 const InboxPilot = () => {
   return (
+    
     <div className="min-h-screen bg-[#F4F8FB] dark:bg-[#060D18] text-gray-800 dark:text-white transition-colors">
+      <Toaster position="top-center" />
       {/* ===== BACK TO HOME ===== */}
       <div className="px-6 sm:px-12 lg:px-24 xl:px-40 pt-8">
         <Link

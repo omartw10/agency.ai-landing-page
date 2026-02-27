@@ -37,20 +37,15 @@ const ContactUs = ({
 
     setLoading(true);
 
-    formData.append("access_key", "2eabdc35-f4cc-438b-a09a-7914b9fb6b9c");
-
     formData.append("subject", subject);
-    formData.append("from_name", name);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+try {
+  const response = await fetch("http://localhost:5678/webhook/neurasyncai", {
+    method: "POST",
+    body: formData,
+  });
 
-      const data = await response.json();
-
-      if (data.success) {
+  if (response.ok) { 
         toast.success("Message sent successfully 🚀", {
           duration: 4000,
           position: "top-center",
