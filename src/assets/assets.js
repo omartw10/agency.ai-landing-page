@@ -32,6 +32,8 @@ import moon_icon from './moon_icon.svg'
 import omar_photo from './omar_photo.jpg'
 import whatsapp_icon from './whatsapp_icon.png'
 import whatsapp_icon_dark from './whatsapp_icon_dark.png'
+import email_view from './email_view.png'
+import list_view from './list_view.png'
 
 export const company_logos = [
   microsoft_logo,
@@ -43,6 +45,8 @@ export const company_logos = [
 ]
 
 const assets = {
+  email_view,
+  list_view,
   logo,
   arrow_icon,
   group_profile,

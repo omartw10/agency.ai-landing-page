@@ -13,3 +13,6 @@
 @theme {
   --color-primary: #0B1F3B;  /* Navy */
 }
+.perspective {
+  perspective: 1200px;
+}

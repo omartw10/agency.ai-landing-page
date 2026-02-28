@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import ContactUs from "../components/ContactUs";
 import { Toaster } from "react-hot-toast";
 
+
 const InboxPilot = () => {
   return (
-    
     <div className="min-h-screen bg-[#F4F8FB] dark:bg-[#060D18] text-gray-800 dark:text-white transition-colors">
       <Toaster position="top-center" />
       {/* ===== BACK TO HOME ===== */}
@@ -81,22 +81,96 @@ const InboxPilot = () => {
       </section>
 
       {/* ===== DEMO VIDEO ===== */}
-      <section className="px-6 sm:px-12 lg:px-24 xl:px-40 py-20 text-center">
+      <section className="px-6 sm:px-12 lg:px-24 xl:px-40 py-24 text-center">
         <h2 className="text-3xl font-semibold">Watch InboxPilot in Action</h2>
 
         <p className="mt-4 text-gray-600 dark:text-gray-300">
           See how AI classifies, routes, and automates your inbox in real time.
         </p>
 
-        <div className="mt-10 flex justify-center">
-          <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-              title="InboxPilot Demo"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="relative group max-w-6xl mx-auto mt-16"
+        >
+          {/* Glow */}
+          <div className="absolute -inset-2 rounded-[32px] bg-gradient-to-r from-[#00C2D1]/40 via-transparent to-[#00C2D1]/40 blur-3xl opacity-50 group-hover:opacity-80 transition duration-500" />
+
+          {/* Gradient Border */}
+          <div className="relative rounded-[32px] p-[2px] bg-gradient-to-r from-[#00C2D1] via-[#0B1F3B] to-[#00C2D1]">
+            {/* Inner Frame */}
+            <div className="rounded-[30px] overflow-hidden bg-black shadow-2xl transform transition duration-500 group-hover:scale-[1.015]">
+              <iframe
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                className="w-full aspect-video md:h-[520px]"
+                allowFullScreen
+                title="InboxPilot Demo"
+              />
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ===== SYSTEM PREVIEW ===== */}
+      <section className="px-6 sm:px-12 lg:px-24 xl:px-40 py-24 bg-[#060D18] text-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold">Inside InboxPilot</h2>
+
+          <p className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            A real-time AI routing engine designed to classify, prioritize, and
+            structure every incoming inquiry with precision.
+          </p>
+
+          <div className="mt-20 grid md:grid-cols-2 gap-16 items-center">
+            {/* LIST VIEW */}
+            <div className="flex justify-center">
+              <div className="group perspective relative w-[480px] max-w-full">
+                <div className="absolute -inset-4 bg-cyan-400/10 blur-2xl rounded-3xl opacity-30 group-hover:opacity-50 transition duration-500" />
+
+                <img
+                  src="/src/assets/list_view.png"
+                  alt="InboxPilot List View"
+                  className="
+              relative
+              rounded-2xl
+              border border-white/10
+              shadow-xl
+              transition-all
+              duration-500
+              transform-gpu
+              group-hover:-translate-y-3
+              group-hover:rotate-1
+              group-hover:scale-[1.03]
+            "
+                />
+              </div>
+            </div>
+
+            {/* EMAIL VIEW */}
+            <div className="flex justify-center">
+              <div className="group perspective relative w-[480px] max-w-full">
+                <div className="absolute -inset-4 bg-cyan-400/10 blur-2xl rounded-3xl opacity-30 group-hover:opacity-50 transition duration-500" />
+
+                <img
+                  src="/src/assets/email_view.png"
+                  alt="InboxPilot Email View"
+                  className="
+              relative
+              rounded-2xl
+              border border-white/10
+              shadow-xl
+              transition-all
+              duration-500
+              transform-gpu
+              group-hover:-translate-y-4
+              group-hover:-rotate-1
+              group-hover:scale-[1.04]
+            "
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

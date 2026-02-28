@@ -10,6 +10,7 @@ import OurWork from "../components/OurWork";
 import Teams from "../components/Teams";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
+import PoweredByInboxPilot from "../components/PoweredByInboxPilot";
 
 const Home = ({ theme, setTheme }) => {
   const location = useLocation();
@@ -62,6 +63,7 @@ const Home = ({ theme, setTheme }) => {
 
       <Hero />
       <TrustedBy />
+      <PoweredByInboxPilot /> 
       <Services />
       <OurWork />
       <Teams />
